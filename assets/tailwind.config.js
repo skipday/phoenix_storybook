@@ -31,4 +31,5 @@ module.exports = {
   },
   important: ".lsb",
   prefix: "lsb-",
+  darkMode: "class"
 };

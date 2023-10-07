@@ -32,7 +32,8 @@ defmodule PhoenixStorybook.StoryLive do
        playground_preview_pid: nil,
        playground_topic: playground_topic,
        fa_plan: backend_module.config(:font_awesome_plan, :free),
-       connect_params: connect_params
+       connect_params: connect_params,
+       color_mode: "light"
      )}
   end
 
@@ -546,6 +547,15 @@ defmodule PhoenixStorybook.StoryLive do
     id |> to_string() |> String.replace("_", "-")
   end
 
+  defp assign_color_mode(socket, %{"mode" => "dark"}) do
+    |> assign(:color_mode, "light")
+  end
+
+  defp assign_color_mode(socket, %{"mode" => "light"}) do
+    socket
+    |> assign(:color_mode, "dark")
+  end
+
   def handle_event("set-theme", %{"theme" => theme}, socket) do
     PubSub.broadcast!(
       PhoenixStorybook.PubSub,
@@ -559,6 +569,18 @@ defmodule PhoenixStorybook.StoryLive do
      socket
      |> assign(:theme, theme)
      |> patch_to(socket.assigns.root_path, socket.assigns.story_path, %{theme: theme})}
+  end
+
+  def handle_event("set-color-mode", params, socket) do
+    JS.dispatch("lsb:toggle-darkmode")
+    {:noreply,
+      socket
+      |> assign_color_mode(params)}
+  end
+
+  def handle_event("lsb:color-mode", %{"color-mode" => mode}, socket) do
+    IO.inspect(mode)
+    {:noreply, assign(socket, color_mode: mode)}
   end
 
   def handle_event("set-tab", %{"tab" => tab}, socket) do
