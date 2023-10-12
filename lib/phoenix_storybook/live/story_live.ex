@@ -165,7 +165,7 @@ defmodule PhoenixStorybook.StoryLive do
         <%= @story_load_error %>
       </h1>
 
-      <div class="lsb lsb-border lsb-rounded-md lsb-border-slate-100 lsb-bg-slate-800 lsb-p-4 lsb-overflow-x-scroll">
+      <div class="lsb lsb-border lsb-rounded-md lsb-border-slate-100 dark:lsb-border-slate-800 lsb-bg-slate-800 lsb-p-4 lsb-overflow-x-scroll">
         <pre class="lsb lsb-text-xs md:lsb-text-sm lsb-leading-loose lsb-text-red-500"><%= @story_load_exception %></pre>
       </div>
     </div>
@@ -177,15 +177,15 @@ defmodule PhoenixStorybook.StoryLive do
 
     ~H"""
     <div
-      class="lsb lsb-space-y-6 lsb-pb-12 lsb-flex lsb-flex-col lsb-h-[calc(100vh_-_7rem)] lg:lsb-h-[calc(100vh_-_4rem)]"
+      class="lsb dark:lsb-bg-gray-900 lsb-space-y-6 lsb-pb-12 lsb-flex lsb-flex-col lsb-h-[calc(100vh_-_7rem)] lg:lsb-h-[calc(100vh_-_4rem)]"
       id="story-live"
       phx-hook="StoryHook"
     >
       <div class="lsb">
         <div class="lsb lsb-flex lsb-my-6 lsb-items-center">
-          <h2 class="lsb lsb-flex-1 lsb-flex-nowrap lsb-whitespace-nowrap lsb-text-xl md:lsb-text-2xl lg:lsb-text-3xl lsb-m-0 lsb-font-extrabold lsb-tracking-tight lsb-text-indigo-600">
+          <h2 class="lsb lsb-flex-1 lsb-flex-nowrap lsb-whitespace-nowrap lsb-text-xl md:lsb-text-2xl lg:lsb-text-3xl lsb-m-0 lsb-font-extrabold lsb-tracking-tight lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500 dark:lsb-text-indigo-500">
             <%= if icon = @story_entry.icon do %>
-              <.user_icon icon={icon} class="lsb-pr-2 lsb-text-indigo-600" fa_plan={@fa_plan} />
+              <.user_icon icon={icon} class="lsb-pr-2 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500" fa_plan={@fa_plan} />
             <% end %>
             <%= @story_entry.name %>
           </h2>
@@ -208,7 +208,7 @@ defmodule PhoenixStorybook.StoryLive do
 
   defp print_doc(assigns = %{doc: [_header | _]}) do
     ~H"""
-    <div class="lsb lsb-text-base md:lsb-text-lg lsb-leading-7 lsb-text-slate-700">
+    <div class="lsb lsb-text-base md:lsb-text-lg lsb-leading-7 lsb-text-slate-700 dark:lsb-text-slate-100">
       <%= @doc |> Enum.at(0) |> raw() %>
     </div>
     <%= if Enum.count(@doc) > 1 do %>
@@ -297,7 +297,7 @@ defmodule PhoenixStorybook.StoryLive do
         ) %>
       </.form>
       <!-- :lg+ version of navigation tabs -->
-      <nav class="lsb story-tabs lsb-hidden lg:lsb-flex lsb-rounded-lg lsb-border lsb-bg-slate-100 lsb-hover:lsb-bg-slate-200 lsb-h-10 lsb-text-sm lsb-font-medium">
+      <nav class="lsb story-tabs lsb-hidden lg:lsb-flex lsb-rounded-lg lsb-border dark:lsb-border-slate-950 lsb-bg-slate-100 dark:lsb-bg-slate-900 hover:lsb-bg-slate-200 dark:hover:lsb-bg-slate-800 lsb-h-10 lsb-text-sm lsb-font-medium">
         <%= for tab <- @tabs do %>
           <% {tab_id, tab_label} = {elem(tab, 0), elem(tab, 1)} %>
           <a
@@ -311,11 +311,11 @@ defmodule PhoenixStorybook.StoryLive do
               <%= if icon do %>
                 <.user_icon
                   icon={icon}
-                  class={"lg:lsb-mr-2 group-hover:lsb-text-indigo-600 #{active_text(@tab, tab_id)}"}
+                  class={"lg:lsb-mr-2 group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 #{active_text(@tab, tab_id)}"}
                   fa_plan={@fa_plan}
                 />
               <% end %>
-              <span class={"lsb lsb-whitespace-nowrap group-hover:lsb-text-indigo-600 #{active_text(@tab, tab_id)}"}>
+              <span class={"lsb lsb-whitespace-nowrap group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 #{active_text(@tab, tab_id)}"}>
                 <%= tab_label %>
               </span>
             </span>
@@ -326,20 +326,20 @@ defmodule PhoenixStorybook.StoryLive do
     """
   end
 
-  defp active_link(same, same), do: "lsb lsb-bg-white lsb-opacity-100"
+  defp active_link(same, same), do: "lsb lsb-bg-white dark:lsb-bg-gray-900 lsb-opacity-100"
 
   defp active_link(_tab, _current_tab) do
-    "lsb lsb-ml-0.5 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5 lsb-items-center lsb-text-slate-600"
+    "lsb lsb-ml-0.5 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5 lsb-items-center lsb-text-slate-600 dark:lsb-text-slate-300"
   end
 
   defp active_span(same, same) do
-    "lsb lsb-h-full lsb-rounded-md lsb-flex lsb-items-center lsb-bg-white lsb-shadow-sm \
-    lsb-ring-opacity-5 lsb-text-indigo-600 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5"
+    "lsb lsb-h-full lsb-rounded-md lsb-flex lsb-items-center lsb-bg-white dark:lsb-bg-gray-900 lsb-shadow-sm \
+    lsb-ring-opacity-5 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5"
   end
 
   defp active_span(_tab, _current_tab), do: ""
 
-  defp active_text(same, same), do: "lsb-text-indigo-600"
+  defp active_text(same, same), do: "lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500"
   defp active_text(_tab, _current_tab), do: "-lsb-ml-0.5"
 
   defp navigation_select_options(tabs) do
@@ -367,7 +367,7 @@ defmodule PhoenixStorybook.StoryLive do
           class="lsb lsb-variation-block lsb-gap-x-4 lsb-grid lsb-grid-cols-5"
         >
           <!-- Variation description -->
-          <div class="lsb lsb-col-span-5 lsb-font-medium hover:lsb-font-semibold lsb-mb-6 lsb-border-b lsb-border-slate-100 md:lsb-text-lg lsb-leading-7 lsb-text-slate-700 lsb-flex lsb-justify-between">
+          <div class="lsb lsb-col-span-5 lsb-font-medium hover:lsb-font-semibold lsb-mb-6 lsb-border-b lsb-border-slate-100 md:lsb-text-lg lsb-leading-7 lsb-text-slate-700 dark:lsb-text-slate-100 lsb-flex lsb-justify-between">
             <%= link to: "##{anchor_id(variation)}", class: "lsb variation-anchor-link" do %>
               <.fa_icon
                 style={:light}
@@ -391,13 +391,13 @@ defmodule PhoenixStorybook.StoryLive do
               }
               class="lsb lsb-hidden lsb-open-playground-link"
             >
-              <span class="lsb lsb-text-base lsb-font-light lsb-text-gray-500 hover:lsb-text-indigo-600 hover:lsb-font-medium ">
+              <span class="lsb lsb-text-base lsb-font-light lsb-text-gray-500 hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 hover:lsb-font-medium ">
                 Open in playground <.fa_icon style={:regular} name="arrow-right" plan={@fa_plan} />
               </span>
             </.link>
           </div>
           <!-- Variation component preview -->
-          <div class="lsb lsb-border lsb-border-slate-100 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-2 lsb-mb-4 lg:lsb-mb-0 lsb-flex lsb-items-center lsb-justify-center lsb-p-2 lsb-bg-white lsb-shadow-sm">
+          <div class="lsb lsb-border lsb-border-slate-100 dark:lsb-border-slate-950 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-2 lsb-mb-4 lg:lsb-mb-0 lsb-flex lsb-items-center lsb-justify-center lsb-p-2 lsb-bg-white dark:lsb-bg-gray-900 lsb-shadow-sm">
             <%= if @story.container() == :iframe do %>
               <iframe
                 phx-update="ignore"
@@ -422,7 +422,7 @@ defmodule PhoenixStorybook.StoryLive do
             <% end %>
           </div>
           <!-- Variation code -->
-          <div class="lsb lsb-border lsb-border-slate-100 lsb-bg-slate-800 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-3 lsb-group lsb-relative lsb-shadow-sm lsb-flex lsb-flex-col lsb-justify-center">
+          <div class="lsb lsb-border lsb-border-slate-100 dark:lsb-border-slate-950 lsb-bg-slate-800 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-3 lsb-group lsb-relative lsb-shadow-sm lsb-flex lsb-flex-col lsb-justify-center">
             <div
               phx-click={JS.dispatch("lsb:copy-code")}
               class="lsb lsb-hidden group-hover:lsb-block lsb-bg-slate-700 lsb-text-slate-500 hover:lsb-text-slate-100 lsb-z-10 lsb-absolute lsb-top-2 lsb-right-2 lsb-px-2 lsb-py-1 lsb-rounded-md lsb-cursor-pointer"
@@ -548,6 +548,7 @@ defmodule PhoenixStorybook.StoryLive do
   end
 
   defp assign_color_mode(socket, %{"mode" => "dark"}) do
+    socket
     |> assign(:color_mode, "light")
   end
 

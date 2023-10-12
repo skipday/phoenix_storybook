@@ -112,12 +112,12 @@ module.exports = {
 
   /* this style will be generated as .my-app-sandbox h1 { ... } */
   h1 {
-    @apply text-2xl font-bold text-slate-700 mt-2 mb-6;
+    @apply text-2xl font-bold text-slate-700 dark:lsb-text-slate-100 dark:lsb-text-slate-100 mt-2 mb-6;
   }
 
   /* this style will be generated as .my-app-sandbox h2 { ... } */
   h2 {
-    @apply text-xl font-bold text-slate-700 mt-2 mb-4;
+    @apply text-xl font-bold text-slate-700 dark:lsb-text-slate-100 dark:lsb-text-slate-100 mt-2 mb-4;
   }
 }
 ```

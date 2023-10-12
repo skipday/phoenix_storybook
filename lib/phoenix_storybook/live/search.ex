@@ -93,8 +93,8 @@ defmodule PhoenixStorybook.Search do
             <%= for {story, i} <- Enum.with_index(@stories) do %>
               <li
                 id={"story-#{i}"}
-                phx-highlight={JS.add_class("lsb-bg-slate-50 lsb-text-indigo-600")}
-                phx-baseline={JS.remove_class("lsb-bg-slate-50 lsb-text-indigo-600")}
+                phx-highlight={JS.add_class("lsb-bg-slate-50 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500")}
+                phx-baseline={JS.remove_class("lsb-bg-slate-50 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500")}
                 class="lsb lsb-flex lsb-justify-between lsb-group lsb-select-none lsb-px-4 lsb-py-4 lsb-space-x-4 lsb-cursor-pointer"
                 tabindex="-1"
               >

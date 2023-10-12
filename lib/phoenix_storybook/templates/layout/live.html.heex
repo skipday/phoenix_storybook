@@ -1,9 +1,9 @@
 
-<header class="lsb lsb-fixed lsb-top-0 lsb-w-full lsb-z-10 lsb-shadow-md lsb-shadow-slate-900/5 lsb-backdrop-blur-lg lsb-bg-white/50">
+<header class="lsb lsb-fixed lsb-top-0 lsb-w-full lsb-z-10 lsb-shadow-md lsb-shadow-slate-900/5 lsb-backdrop-blur-lg lsb-bg-white/50 dark:lsb-bg-gray-900/50">
   <div class="lsb lsb-h-16 lsb-w-full">
-    <div class="lsb lsb-absolute lsb-top-5 lsb-left-5 lsb-z-20 lsb-text-indigo-600 lsb-text-lg lsb-font-bold lsb-uppercase ">
+    <div class="lsb lsb-absolute lsb-top-5 lsb-left-5 lsb-z-20 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-lg lsb-font-bold lsb-uppercase ">
       <.link patch={@root_path} class="lsb">
-        <.fa_icon style={:regular} name="book-open" class="lsb-text-indigo-600" plan={@fa_plan}/>
+        <.fa_icon style={:regular} name="book-open" class="lsb-text-indigo-600 dark:text-indigo-500" plan={@fa_plan}/>
         <span class="lsb lsb-ml-1"><%= title(@socket) %></span>
       </.link>
     </div>
@@ -26,7 +26,6 @@
             <%= for {theme, opts} <- themes do %>
               <a phx-click={JS.push("set-theme", value: %{"theme" => theme}) |> JS.hide(to: "#lsb-theme-dropdown", transition: hide_dropdown_transition())}} class="lsb lsb-theme lsb-text-gray-700 hover:lsb-bg-gray-100 lsb-block lsb-px-4 lsb-py-2 lsb-text-sm lsb-cursor-pointer">
                 <%= if assigns[:theme] == theme do %>
-                  <span class="lsb lsb-text-indigo-600">
                   <span class="lsb lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500">
                     <.fa_icon name="check" class="lsb-pr-2" plan={@fa_plan}/><%= opts[:name] %>
                   </span>

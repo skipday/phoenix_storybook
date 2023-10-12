@@ -21,7 +21,7 @@ defmodule PhoenixStorybook.LayoutView do
         <.fa_icon
           style={:thin}
           name="angle-right"
-          class="lsb-px-2 lsb-text-slate-500"
+          class="lsb-px-2 lsb-text-slate-500 dark:lsb-text-slate-300"
           plan={@fa_plan}
         />
       </:separator>

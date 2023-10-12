@@ -234,7 +234,7 @@ defmodule PhoenixStorybook.Story.Playground do
     """
   end
 
-  defp active_link(same_tab, same_tab), do: "lsb-border-indigo-500 lsb-text-indigo-600"
+  defp active_link(same_tab, same_tab), do: "lsb-border-indigo-500 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500"
 
   defp active_link(_current_tab, _tab) do
     "lsb-border-transparent lsb-text-gray-500 hover:lsb-text-gray-700 hover:lsb-border-gray-300"
@@ -399,7 +399,7 @@ defmodule PhoenixStorybook.Story.Playground do
                           <% end %>
                           <%= attr.id %>
                           <%= if attr.required do %>
-                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-600 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
+                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
                               *
                             </span>
                           <% end %>
@@ -436,7 +436,7 @@ defmodule PhoenixStorybook.Story.Playground do
                           <% end %>
                           <%= slot.id %>
                           <%= if slot.required do %>
-                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-600 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
+                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
                               *
                             </span>
                           <% end %>
@@ -545,10 +545,10 @@ defmodule PhoenixStorybook.Story.Playground do
       <.fa_icon
         style={:duotone}
         name="circle-dot"
-        class="lsb-text-indigo-400 hover:lsb-text-indigo-600 lsb-cursor-pointer"
+        class="lsb-text-indigo-400 hover:lsb-text-indigo-600 dark:text-indigo-500 lsb-cursor-pointer"
         plan={@fa_plan}
       />
-      <span class="lsb lsb-hidden lsb-absolute lsb-top-6 group-hover:lsb-block lsb-z-50 lsb-mx-auto lsb-text-xs lsb-text-indigo-800 lsb-bg-indigo-100 lsb-rounded lsb-px-2 lsb-py-1">
+      <span class="lsb lsb-hidden lsb-absolute lsb-top-6 group-hover:lsb-block lsb-z-50 lsb-mx-auto lsb-text-xs lsb-text-indigo-700 dark:lsb-text-indigo-600 lsb-bg-indigo-100 lsb-rounded lsb-px-2 lsb-py-1">
         Required
       </span>
     </span>
