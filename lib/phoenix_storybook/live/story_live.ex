@@ -548,13 +548,11 @@ defmodule PhoenixStorybook.StoryLive do
   end
 
   defp assign_color_mode(socket, %{"mode" => "dark"}) do
-    socket
-    |> assign(:color_mode, "light")
+    socket |> assign(:color_mode, "light")
   end
 
   defp assign_color_mode(socket, %{"mode" => "light"}) do
-    socket
-    |> assign(:color_mode, "dark")
+    socket |> assign(:color_mode, "dark")
   end
 
   def handle_event("set-theme", %{"theme" => theme}, socket) do
@@ -580,7 +578,6 @@ defmodule PhoenixStorybook.StoryLive do
   end
 
   def handle_event("lsb:color-mode", %{"color-mode" => mode}, socket) do
-    IO.inspect(mode)
     {:noreply, assign(socket, color_mode: mode)}
   end
 
