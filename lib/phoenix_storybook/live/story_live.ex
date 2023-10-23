@@ -183,9 +183,9 @@ defmodule PhoenixStorybook.StoryLive do
     >
       <div class="lsb">
         <div class="lsb lsb-flex lsb-my-6 lsb-items-center">
-          <h2 class="lsb lsb-flex-1 lsb-flex-nowrap lsb-whitespace-nowrap lsb-text-xl md:lsb-text-2xl lg:lsb-text-3xl lsb-m-0 lsb-font-extrabold lsb-tracking-tight lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500 dark:lsb-text-indigo-500">
+          <h2 class="lsb lsb-flex-1 lsb-flex-nowrap lsb-whitespace-nowrap lsb-text-xl md:lsb-text-2xl lg:lsb-text-3xl lsb-m-0 lsb-font-extrabold lsb-tracking-tight lsb-text-indigo-700 dark:lsb-text-indigo-400">
             <%= if icon = @story_entry.icon do %>
-              <.user_icon icon={icon} class="lsb-pr-2 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500" fa_plan={@fa_plan} />
+              <.user_icon icon={icon} class="lsb-pr-2 lsb-text-indigo-700 dark:lsb-text-indigo-400" fa_plan={@fa_plan} />
             <% end %>
             <%= @story_entry.name %>
           </h2>
@@ -311,11 +311,11 @@ defmodule PhoenixStorybook.StoryLive do
               <%= if icon do %>
                 <.user_icon
                   icon={icon}
-                  class={"lg:lsb-mr-2 group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 #{active_text(@tab, tab_id)}"}
+                  class={"lg:lsb-mr-2 group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 #{active_text(@tab, tab_id)}"}
                   fa_plan={@fa_plan}
                 />
               <% end %>
-              <span class={"lsb lsb-whitespace-nowrap group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 #{active_text(@tab, tab_id)}"}>
+              <span class={"lsb lsb-whitespace-nowrap group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 #{active_text(@tab, tab_id)}"}>
                 <%= tab_label %>
               </span>
             </span>
@@ -334,12 +334,12 @@ defmodule PhoenixStorybook.StoryLive do
 
   defp active_span(same, same) do
     "lsb lsb-h-full lsb-rounded-md lsb-flex lsb-items-center lsb-bg-white dark:lsb-bg-gray-900 lsb-shadow-sm \
-    lsb-ring-opacity-5 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5"
+    lsb-ring-opacity-5 lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-p-1.5 lg:lsb-pl-2.5 lg:lsb-pr-3.5"
   end
 
   defp active_span(_tab, _current_tab), do: ""
 
-  defp active_text(same, same), do: "lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500"
+  defp active_text(same, same), do: "lsb-text-indigo-600 dark:lsb-text-indigo-400"
   defp active_text(_tab, _current_tab), do: "-lsb-ml-0.5"
 
   defp navigation_select_options(tabs) do
@@ -391,7 +391,7 @@ defmodule PhoenixStorybook.StoryLive do
               }
               class="lsb lsb-hidden lsb-open-playground-link"
             >
-              <span class="lsb lsb-text-base lsb-font-light lsb-text-gray-500 hover:lsb-text-indigo-600 dark:text-indigo-500 dark:lsb-text-indigo-500 hover:lsb-font-medium ">
+              <span class="lsb lsb-text-base lsb-font-light lsb-text-gray-500 hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 hover:lsb-font-medium ">
                 Open in playground <.fa_icon style={:regular} name="arrow-right" plan={@fa_plan} />
               </span>
             </.link>

@@ -75,11 +75,12 @@ defmodule Storybook.MyPage do
           <%= for {dt, link} <- @items do %>
             <div class="lsb-py-4 sm:lsb-grid sm:lsb-grid-cols-3 sm:lsb-gap-4 sm:lsb-py-5 sm:lsb-px-6 lsb-max-w-full">
               <dt class="lsb-text-base lsb-font-medium lsb-text-indigo-700 dark:lsb-text-indigo-500 dark:lsb-text-indigo-600">
+              <dt class="lsb-text-base lsb-font-medium lsb-text-red-500">
                 <%= dt %>
               </dt>
               <dd class="lsb-mt-1 lsb-text-base lsb-text-slate-400 sm:lsb-col-span-2 sm:lsb-mt-0 lsb-group lsb-cursor-pointer lsb-max-w-full">
                 <a
-                  class="group-hover:lsb-text-indigo-700 lsb-max-w-full lsb-inline-block lsb-truncate"
+                  class="group-hover:lsb-text-indigo-700 dark:group-hover:lsb-text-indigo-300 lsb-max-w-full lsb-inline-block lsb-truncate"
                   href={link}
                   target="_blank"
                 >

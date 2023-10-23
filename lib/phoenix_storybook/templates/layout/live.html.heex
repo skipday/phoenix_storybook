@@ -1,9 +1,9 @@
 
 <header class="lsb lsb-fixed lsb-top-0 lsb-w-full lsb-z-10 lsb-shadow-md lsb-shadow-slate-900/5 lsb-backdrop-blur-lg lsb-bg-white/50 dark:lsb-bg-gray-900/50">
   <div class="lsb lsb-h-16 lsb-w-full">
-    <div class="lsb lsb-absolute lsb-top-5 lsb-left-5 lsb-z-20 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-lg lsb-font-bold lsb-uppercase ">
+    <div class="lsb lsb-absolute lsb-top-5 lsb-left-5 lsb-z-20 lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-text-lg lsb-font-bold lsb-uppercase ">
       <.link patch={@root_path} class="lsb">
-        <.fa_icon style={:regular} name="book-open" class="lsb-text-indigo-600 dark:text-indigo-500" plan={@fa_plan}/>
+        <.fa_icon style={:regular} name="book-open" class="lsb-text-indigo-600 dark:lsb-text-indigo-400" plan={@fa_plan}/>
         <span class="lsb lsb-ml-1"><%= title(@socket) %></span>
       </.link>
     </div>
@@ -14,19 +14,19 @@
         </button>
 
         <%= if themes = themes(@socket) do %>
-        <button type="button" class="lsb lsb-h-7 lsb-w-7 lsb-bg-gray-100 dark:lsb-bg-gray-900 lsb-rounded-full lsb-flex lsb-flex-row lsb-justify-center lsb-items-center lsb-text-gray-400 hover:lsb-text-indigo-600 dark:lsb-text-indigo-500 focus:lsb-outline-none focus:lsb-ring-2 focus:lsb-ring-offset-2 focus:lsb-ring-offset-gray-100 focus:lsb-ring-indigo-500" phx-click={JS.show(to: "#lsb-theme-dropdown", transition: show_dropdown_transition())}>
+        <button type="button" class="lsb lsb-h-7 lsb-w-7 lsb-bg-gray-100 dark:lsb-bg-gray-900 lsb-rounded-full lsb-flex lsb-flex-row lsb-justify-center lsb-items-center lsb-text-gray-400 hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:hover:lsb-text-indigo-300 focus:lsb-outline-none focus:lsb-ring-2 focus:lsb-ring-offset-2 focus:lsb-ring-offset-gray-100 focus:lsb-ring-indigo-500" phx-click={JS.show(to: "#lsb-theme-dropdown", transition: show_dropdown_transition())}>
           <.fa_icon style={:regular} name="palette" class={current_theme_dropdown_class(@socket, assigns)} plan={@fa_plan}/>
         </button>
         
         <div id="lsb-theme-dropdown" class="lsb lsb-hidden lsb-origin-top-right lsb-absolute lsb-right-0 lsb-mt-2 lsb-w-52 lsb-rounded-md lsb-shadow-lg lsb-bg-white lsb-ring-1 lsb-ring-black lsb-ring-opacity-5 lsb-divide-y lsb-divide-gray-100 focus:lsb-outline-none" phx-click-away={JS.hide(to: "#lsb-theme-dropdown", transition: hide_dropdown_transition())}>
           <div class="lsb lsb-px-4 lsb-py-3">
-            <p class="lsb lsb-text-sm lsb-font-medium lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500">Pick a theme</p>
+            <p class="lsb lsb-text-sm lsb-font-medium lsb-text-indigo-700 dark:lsb-text-indigo-400">Pick a theme</p>
           </div>
           <div class="lsb lsb-py-1">
             <%= for {theme, opts} <- themes do %>
               <a phx-click={JS.push("set-theme", value: %{"theme" => theme}) |> JS.hide(to: "#lsb-theme-dropdown", transition: hide_dropdown_transition())}} class="lsb lsb-theme lsb-text-gray-700 hover:lsb-bg-gray-100 lsb-block lsb-px-4 lsb-py-2 lsb-text-sm lsb-cursor-pointer">
                 <%= if assigns[:theme] == theme do %>
-                  <span class="lsb lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500">
+                  <span class="lsb lsb-text-indigo-700 dark:lsb-text-indigo-400">
                     <.fa_icon name="check" class="lsb-pr-2" plan={@fa_plan}/><%= opts[:name] %>
                   </span>
                 <% else %>
@@ -43,7 +43,7 @@
   </div>
 
   <div class="lsb lg:lsb-hidden lsb-absolute lsb-top-4 lsb-right-5 lsb-inline-block ">
-    <button type="button" phx-click={JS.dispatch("lsb:open-search")} class="lsb lsb-h-7 lsb-w-7 lsb-bg-gray-100 lsb-rounded-full lsb-flex lsb-flex-row lsb-justify-center lsb-items-center lsb-text-gray-400 hover:lsb-text-indigo-600 dark:text-indigo-500 focus:lsb-outline-none focus:lsb-ring-2 focus:lsb-ring-offset-2 focus:lsb-ring-offset-gray-100 focus:lsb-ring-indigo-500" >
+    <button type="button" phx-click={JS.dispatch("lsb:open-search")} class="lsb lsb-h-7 lsb-w-7 lsb-bg-gray-100 lsb-rounded-full lsb-flex lsb-flex-row lsb-justify-center lsb-items-center lsb-text-gray-400 hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:hover:lsb-text-indigo-300 focus:lsb-outline-none focus:lsb-ring-2 focus:lsb-ring-offset-2 focus:lsb-ring-offset-gray-100 focus:lsb-ring-indigo-500" >
       <.fa_icon name="magnifying-glass" style={:light} plan={@fa_plan}/>
     </button>
   </div>

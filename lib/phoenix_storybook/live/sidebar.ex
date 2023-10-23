@@ -121,7 +121,7 @@ defmodule PhoenixStorybook.Sidebar do
               <% folder_path = Path.join(@root_path, path) %>
               <% open_folder? = open_folder?(folder_path, assigns) %>
               <div
-                class="lsb lsb-flex lsb-items-center lsb-py-3 lg:lsb-py-1.5 -lsb-ml-2 lsb-group lsb-cursor-pointer lsb-group hover:lsb-text-indigo-600 dark:text-indigo-500 dark:hover:lsb-text-indigo-500"
+                class="lsb lsb-flex lsb-items-center lsb-py-3 lg:lsb-py-1.5 -lsb-ml-2 lsb-group lsb-cursor-pointer lsb-group hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:hover:lsb-text-indigo-300"
                 phx-click={click_action(open_folder?)}
                 phx-target={@myself}
                 phx-value-path={folder_path}
@@ -137,12 +137,12 @@ defmodule PhoenixStorybook.Sidebar do
                 <%= if folder_icon do %>
                   <.user_icon
                     icon={folder_icon}
-                    class="fa-fw lsb-pr-1.5 group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:group-hover:lsb-text-indigo-500"
+                    class="fa-fw lsb-pr-1.5 group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:group-hover:lsb-text-indigo-300"
                     fa_plan={@fa_plan}
                   />
                 <% end %>
 
-                <span class="lsb group-hover:lsb-text-indigo-600 dark:text-indigo-500 dark:group-hover:lsb-text-indigo-500">
+                <span class="lsb group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:group-hover:lsb-text-indigo-300">
                   <%= name %>
                 </span>
               </div>
@@ -162,13 +162,13 @@ defmodule PhoenixStorybook.Sidebar do
                 <%= if icon do %>
                   <.user_icon
                     icon={icon}
-                    class="fa-fw -lsb-ml-1 lsb-pr-1.5 group-hover:lsb-text-indigo-600 dark:text-indigo-500"
+                    class="fa-fw -lsb-ml-1 lsb-pr-1.5 group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:group-hover:lsb-text-indigo-300"
                     fa_plan={@fa_plan}
                   />
                 <% end %>
                 <.link
                   patch={if t = assigns[:theme], do: "#{story_path}?theme=#{t}", else: story_path}
-                  class="lsb group-hover:lsb-text-indigo-600 dark:text-indigo-500"
+                  class="lsb group-hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:group-hover:lsb-text-indigo-300"
                 >
                   <%= name %>
                 </.link>
@@ -183,10 +183,10 @@ defmodule PhoenixStorybook.Sidebar do
 
   defp story_class(current_path, story_path) do
     story_class =
-      "lsb lsb-flex lsb-items-center -lsb-ml-[12px] lsb-block lsb-border-l lsb-py-2 lg:lsb-py-1 lsb-pl-4 hover:lsb-border-indigo-600 hover:lsb-text-indigo-600 dark:text-indigo-500 hover:lsb-border-l-1.5 lsb-group"
+      "lsb lsb-flex lsb-items-center -lsb-ml-[12px] lsb-block lsb-border-l lsb-py-2 lg:lsb-py-1 lsb-pl-4 hover:lsb-border-indigo-600 hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 dark:hover:lsb-text-indigo-300 hover:lsb-border-l-1.5 lsb-group"
 
     if current_path == story_path do
-      story_class <> " lsb-font-bold lsb-border-indigo-600 lsb-text-indigo-700 dark:lsb-text-indigo-500 dark:lsb-text-indigo-600 lsb-border-l-1.5"
+      story_class <> " lsb-font-bold lsb-border-indigo-600 lsb-text-indigo-700 dark:lsb-text-indigo-300 lsb-border-l-1.5"
     else
       story_class <> " lsb-border-slate-200 lsb-text-slate-700 dark:lsb-text-slate-100"
     end

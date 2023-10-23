@@ -41,11 +41,11 @@
 }
 
 .lsb-sandbox .lsb-welcome-page h1 {
-  @apply lsb-text-indigo-700 dark:lsb-text-indigo-500 lsb-text-2xl lsb-pt-4 lsb-mb-2;
+  @apply lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-text-2xl lsb-pt-4 lsb-mb-2;
 }
 
 .lsb-sandbox .lsb-welcome-page h2 {
-  @apply lsb-text-indigo-700 dark:lsb-text-indigo-500 lsb-text-xl lsb-pt-4 lsb-mb-2;
+  @apply lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-text-xl lsb-pt-4 lsb-mb-2;
 }
 
 .lsb-sandbox .lsb-welcome-page h3 {
@@ -57,7 +57,7 @@
 }
 
 .lsb-sandbox .lsb-welcome-page strong {
-  @apply lsb-text-indigo-700 dark:lsb-text-indigo-500;
+  @apply lsb-text-indigo-700 dark:lsb-text-indigo-400;
 }
 
 .lsb-sandbox .lsb-welcome-page ul {

@@ -234,7 +234,7 @@ defmodule PhoenixStorybook.Story.Playground do
     """
   end
 
-  defp active_link(same_tab, same_tab), do: "lsb-border-indigo-500 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500"
+  defp active_link(same_tab, same_tab), do: "lsb-border-indigo-500 lsb-text-indigo-700 dark:lsb-text-indigo-400"
 
   defp active_link(_current_tab, _tab) do
     "lsb-border-transparent lsb-text-gray-500 hover:lsb-text-gray-700 hover:lsb-border-gray-300"
@@ -247,7 +247,7 @@ defmodule PhoenixStorybook.Story.Playground do
     ~H"""
     <div class="lsb lsb-relative">
       <div class={[
-        "lsb lsb-min-h-32 lsb-border lsb-border-slate-100 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-2 lg:lsb-mb-0 lsb-flex lsb-items-center lsb-justify-center lsb-bg-white lsb-shadow-sm",
+        "lsb lsb-min-h-32 lsb-border lsb-border-slate-100 dark:lsb-border-slate-950 lsb-rounded-md lsb-col-span-5 lg:lsb-col-span-2 lg:lsb-mb-0 lsb-flex lsb-items-center lsb-justify-center lsb-bg-white dark:lsb-bg-gray-900 lsb-shadow-sm",
         if(@upper_tab != :preview, do: "lsb-hidden"),
         if(@story.container() != :iframe, do: "lsb-px-2")
       ]}>
@@ -399,7 +399,7 @@ defmodule PhoenixStorybook.Story.Playground do
                           <% end %>
                           <%= attr.id %>
                           <%= if attr.required do %>
-                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
+                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
                               *
                             </span>
                           <% end %>
@@ -436,7 +436,7 @@ defmodule PhoenixStorybook.Story.Playground do
                           <% end %>
                           <%= slot.id %>
                           <%= if slot.required do %>
-                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
+                            <span class="lsb lsb-inline md:lsb-hidden lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-text-sm lsb-font-bold -lsb-ml-0.5">
                               *
                             </span>
                           <% end %>
@@ -545,10 +545,10 @@ defmodule PhoenixStorybook.Story.Playground do
       <.fa_icon
         style={:duotone}
         name="circle-dot"
-        class="lsb-text-indigo-400 hover:lsb-text-indigo-600 dark:text-indigo-500 lsb-cursor-pointer"
+        class="lsb-text-indigo-400 hover:lsb-text-indigo-600 dark:lsb-text-indigo-400 lsb-cursor-pointer"
         plan={@fa_plan}
       />
-      <span class="lsb lsb-hidden lsb-absolute lsb-top-6 group-hover:lsb-block lsb-z-50 lsb-mx-auto lsb-text-xs lsb-text-indigo-700 dark:lsb-text-indigo-600 lsb-bg-indigo-100 lsb-rounded lsb-px-2 lsb-py-1">
+      <span class="lsb lsb-hidden lsb-absolute lsb-top-6 group-hover:lsb-block lsb-z-50 lsb-mx-auto lsb-text-xs lsb-text-indigo-700 dark:lsb-text-indigo-400 lsb-bg-indigo-100 lsb-rounded lsb-px-2 lsb-py-1">
         Required
       </span>
     </span>

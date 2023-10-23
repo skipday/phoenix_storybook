@@ -53,7 +53,7 @@ defmodule PhoenixStorybook.Search do
           phx-show={show_modal()}
           phx-hide={hide_modal()}
           phx-click-away={JS.dispatch("lsb:close-search")}
-          class="lsb lsb-opacity-0 lsb-scale-90 lsb-mx-auto lsb-max-w-xl lsb-mt-16 lsb-transform lsb-divide-y lsb-divide-gray-100 lsb-overflow-hidden lsb-rounded-xl lsb-bg-white lsb-shadow-2xl lsb-transition-all"
+          class="lsb lsb-opacity-0 lsb-scale-90 lsb-mx-auto lsb-max-w-xl lsb-mt-16 lsb-transform lsb-divide-y lsb-divide-gray-100 dark:lsb-divide-gray-600 lsb-overflow-hidden lsb-rounded-xl lsb-bg-white dark:lsb-bg-gray-800 lsb-shadow-2xl lsb-transition-all"
         >
           <.form
             :let={f}
@@ -76,26 +76,26 @@ defmodule PhoenixStorybook.Search do
               placeholder: "Search...",
               autocomplete: "off",
               class:
-                "lsb lsb-h-12 lsb-w-full lsb-border-0 lsb-bg-transparent lsb-pl-11 lsb-pr-4 lsb-text-gray-800 lsb-placeholder-gray-400 lsb-outline-none focus:lsb-ring-0 sm:lsb-text-sm"
+                "lsb lsb-h-12 lsb-w-full lsb-border-0 lsb-bg-transparent lsb-pl-11 lsb-pr-4 lsb-text-gray-800 dark:lsb-text-white lsb-placeholder-gray-400 lsb-outline-none focus:lsb-ring-0 sm:lsb-text-sm"
             ) %>
           </.form>
 
           <%= if Enum.empty?(@stories) do %>
-            <div class="lsb lsb-text-center lsb-text-gray-600 lsb-py-4">
+            <div class="lsb lsb-text-center lsb-text-gray-600 dark:lsb-text-gray-400 lsb-py-4">
               <p>No stories found</p>
             </div>
           <% end %>
 
           <ul
             id="search-list"
-            class="lsb lsb-max-h-72 lsb-scroll-py-2 lsb-divide-y lsb-divide-gray-200 lsb-overflow-y-auto lsb-pb-2 lsb-text-sm lsb-text-gray-800"
+            class="lsb lsb-max-h-72 lsb-scroll-py-2 lsb-divide-y lsb-divide-gray-200 dark:lsb-divide-gray-600 lsb-overflow-y-auto lsb-pb-2 lsb-text-sm lsb-text-gray-800"
           >
             <%= for {story, i} <- Enum.with_index(@stories) do %>
               <li
                 id={"story-#{i}"}
-                phx-highlight={JS.add_class("lsb-bg-slate-50 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500")}
-                phx-baseline={JS.remove_class("lsb-bg-slate-50 lsb-text-indigo-700 dark:lsb-text-indigo-400 dark:text-indigo-500 dark:lsb-text-indigo-500")}
-                class="lsb lsb-flex lsb-justify-between lsb-group lsb-select-none lsb-px-4 lsb-py-4 lsb-space-x-4 lsb-cursor-pointer"
+                phx-highlight={JS.add_class("lsb-bg-slate-50 dark:lsb-bg-slate-700 lsb-text-indigo-700 dark:lsb-text-indigo-400")}
+                phx-baseline={JS.remove_class("lsb-bg-slate-50 dark:lsb-bg-slate-700 lsb-text-indigo-700 dark:lsb-text-indigo-400")}
+                class="lsb lsb-flex lsb-justify-between lsb-group lsb-select-none dark:lsb-text-white lsb-px-4 lsb-py-4 lsb-space-x-4 lsb-cursor-pointer"
                 tabindex="-1"
               >
                 <.link
